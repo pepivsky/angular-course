@@ -1,16 +1,21 @@
 <div class="top-menu">
 
-    <img class="logo"
-         src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
+  <img class="logo"
+       src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
 
 </div>
 
 
 <div class="courses">
-<!--  pasandole el objeto course al componente <course-card-->
-  <course-card (courseSelected)="onCourseSelected($event)" [course]="ngrxCourse" ></course-card>
-  <course-card (courseSelected)="onCourseSelected($event)" [course]="coreCourse"></course-card>
-  <course-card (courseSelected)="onCourseSelected($event)" [course]="rxjsCourse"></course-card>
+
+  @for (course of courses; track course.id) { <!--pasandole el id para que se optimice-->
+    <!--  pasandole el objeto course al componente <course-card-->
+    <course-card
+      [course]="course"
+      (courseSelected)="onCourseSelected($event)"
+    />
+  }
+
 </div>
 
 
