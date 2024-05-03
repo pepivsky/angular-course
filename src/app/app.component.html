@@ -8,9 +8,9 @@
 
 <div class="courses">
 <!--  pasandole el objeto course al componente <course-card-->
-  <course-card [course]="ngrxCourse" ></course-card>
-  <course-card [course]="coreCourse"></course-card>
-  <course-card [course]="rxjsCourse"></course-card>
+  <course-card (courseSelected)="onCourseSelected($event)" [course]="ngrxCourse" ></course-card>
+  <course-card (courseSelected)="onCourseSelected($event)" [course]="coreCourse"></course-card>
+  <course-card (courseSelected)="onCourseSelected($event)" [course]="rxjsCourse"></course-card>
 </div>
 
 
