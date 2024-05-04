@@ -1,19 +1,28 @@
 <div class="course-card">
-<!--set course title-->
+  <!--set course title-->
   <div class="course-title">
+    {{ index }}
     {{ course.description }}
   </div>
 
-<!--  set course image-->
-  <img width="300" alt="Angular Logo"
-       [src]="course.iconUrl">
+  @if (course.id == 1) {
+    <h2>Course with ID 1 detected</h2>
+  } @else if (course.iconUrl) {
+    <!--  set course image-->
+    <img width="300" alt="Angular Logo"
+         [src]="course.iconUrl">
 
-<!--  set course longDescription-->
+  } @else {
+    <h2>No image available!</h2>
+  }
+
+
+  <!--  set course longDescription-->
   <div class="course-description">
     {{ course.longDescription }}
   </div>
 
-<!--callback que se llama cuando se le da click al boton de un curso-->
-  <button (click)="onCourseClicked()" >View Course</button>
+  <!--callback que se llama cuando se le da click al boton de un curso-->
+  <button (click)="onCourseClicked()">View Course</button>
 
 </div>

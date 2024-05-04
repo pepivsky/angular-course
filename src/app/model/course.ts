@@ -1,5 +1,5 @@
 
-
+// modelo objeto course
 export interface Course {
     id:number;
     description:string;

@@ -10,7 +10,8 @@ import {Course} from './model/course';
 export class AppComponent {
 
   courses = COURSES
-  
+
+  count = this.courses.length
 
   onCourseSelected(course: Course) {
     console.log("click en la card", course);

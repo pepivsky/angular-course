@@ -3,17 +3,31 @@
   <img class="logo"
        src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
 
+
 </div>
+  <h1>{{ count }}</h1>
+
+
 
 
 <div class="courses">
 
-  @for (course of courses; track course.id) { <!--pasandole el id para que se optimice-->
+  @for (course of courses; track course.id; let index = $index; let first = $first; let  last = $last) { <!--pasandole el id para que se optimice-->
     <!--  pasandole el objeto course al componente <course-card-->
     <course-card
       [course]="course"
+      [index]="index"
       (courseSelected)="onCourseSelected($event)"
+      [class.is-first]="first"
+      [class.is-last]="last"
+      [class.is-even]="$even"
+      [class.is-odd]="$odd"
+
+
+
     />
+  } @empty {
+    <h1>No courses found!</h1>
   }
 
 </div>
